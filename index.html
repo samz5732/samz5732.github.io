@@ -1,7 +1,507 @@
-<!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<header>
+</header>
+
+<Script>
+
+function ajaxGetJson() {
+var hr = new XMLHttpRequest();
+hr.open("GET", "https://onyourside-my.sharepoint.com/personal/s_campfield_nationwide_com/_layouts/15/onedrive.aspx?sortField=Modified&isAscending=false&id=%2Fpersonal%2Fs%5Fcampfield%5Fnationwide%5Fcom%2FDocuments%2FDesktop%2Fsubject%2Ejson&parent=%2Fpersonal%2Fs%5Fcampfield%5Fnationwide%5Fcom%2FDocuments%2FDesktop", true);
+hr.setRequestHeader("Content-type", "application/json", true);
+hr.onreadystatechange = function() {
+    if (hr.readyState == 4 && hr.status == 200) {
+        var data = JSON.parse(hr.responseText);
+        formatToTable(data);
+    }
+}
+hr.send(null);
+}
+
+</script>
+
+<script>
+function formatToTable(data){
+    var thisElement = document.getElementById('RPATbl');
+    thisElement.innerHTML = "<table>";
+
+    for (var x =0; x <len(data); x++){
+        thisElement.innerHTML = thisElement.innerHTML + "<tr><td>" + data[x].subject +"</td> <td>" + data[x].codeNo +"</td></tr>";  
+    };
+    thisElement.innerHTML = thisElement.innerHTML + "</table>";
+ }
+</script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+
+
+		<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-weight: normal;
+  font-size:80%;
+  
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+		body	{
+			background: rgba(76, 175, 80, 0.0);
+			overflow-y: hidden;
+  			overflow-x: hidden;
+		}
+		@keyframes 			firework-animation {
+			0% {background: rgba(76, 175, 80, 1.0);}
+			25% {background: rgba(76, 175, 80, 1.0);}
+			50% {background-color : #ff83f4;}
+			75% {background-color : #83b6ff;}
+			100% {background: rgba(76, 175, 80, 1.0);}
+		}
+		@-webkit-keyframes 	firework-animation {
+			0% {background: rgba(76, 175, 80, 1.0);}
+			25% {background: rgba(76, 175, 80, 1.0);}
+			50% {background-color : #ff83f4;}
+			75% {background-color : #83b6ff;}
+			100% {background: rgba(76, 175, 80, 1.0);}
+		}
+		@keyframes 			firework-seed-animation	{
+			0% {background: rgba(76, 175, 80, 1.0);}
+			25% {background: rgba(76, 175, 80, 1.0);}
+			100% {background: rgba(76, 175, 80, 1.0);}
+		}
+		@-webkit-keyframes	firework-seed-animation	{
+			0% {background: rgba(76, 175, 80, 1.0);}
+			25% {background: rgba(76, 175, 80, 1.0);}
+			100% {background: rgba(76, 175, 80, 1.0);}
+		}
+		@keyframes 			firework-fade-animation {
+			0% {opacity : 1;}
+			50% {opacity : 1;}
+			100% {opacity : 0;}
+		}
+		@-webkit-keyframes 	firework-fade-animation {
+			0% {opacity : 1;}
+			50% {opacity : 1;}
+			100% {opacity : 0;}
+		}
+		.fireWorkBatch {
+			z-index : 999;
+			position : absolute;
+			top : 0px;
+			left : 0px;
+			animation-name : firework-fade-animation;
+			animation-timing-function : cubic-bezier(0.5, 0, 1. 1);
+			animation-duration : 2.5s;
+		}
+		.fireWorkParticle {
+			z-index : 999;
+			position : absolute;
+			height : 5px;
+			width : 5px;
+			border-radius : 2.5px;
+			animation-name : firework-animation;
+			animation-timing-function : linear;
+			animation-duration : 1s;
+			animation-iteration-count : infinite;
+		}
+		.fireWorkSeed {
+			z-index : 999;
+			position : absolute;
+			height : 5px;
+			width : 5px;
+			border-radius : 5px;
+			animation-name : firework-seed-animation;
+			animation-timing-function : linear;
+			animation-duration : 0.5s;
+			animation-iteration-count : infinite;
+		}		
+		</style>
+	
+<body onload="document.getElementById('Home').click">
+<div class="w3-sidebar w3-bar-block w3-black w3-card" style="width:130px">
+  <button class="w3-bar-item w3-button tablink w3-red" onclick="openLink(event, 'Home')">Home</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'RPA');ajaxGetJson();">Robotic Process Automation</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Tax')">Tax Specialist</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Bene')">Beneficiary Changes</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Next')">Next...</button>
+
+</div>
+
+<div style="margin-left:130px">
+  <div class="w3-padding">Welcome to the official Shane Smith Resume Page!</div>
+
+  <div id="Home" class="w3-container city w3-animate-opacity">
+    <h2>Home</h2>
+    <p>This page is currently underdevelopment but will hopefully be a dashboard of all real time accomplisments and current updates.</p>
+    <p>In the meantime, please check out my current and previous roles to your left.</p>
+    
+    <h4>Thanks!<br>Shane Smith</h4>
+
+  </div>
+
+  <div id="RPA" class="w3-container city w3-animate-left" style="display:none">
+    <h2>Robotic Process Automation</h2>
+    <h4><b>Job Summary</b></h4> 
+    <p>My responsibility on this team it to harnesses the power of automation technologies to streamline and enhance our business processes by utilizing tools like Automation Anywhere, Neva, and Power Automate, as well as various scripting languages to create efficient bots that drive time and cost savings while minimizing quality errors. <br><br>Some Key responsibilities are:</p>
+    
+    <UL>
+    <li>Develop and implement automation solutions using a range of programming tools, including but not limited to vb.net, vba, PowerShell, Python, C#, CSS, HTML, Javascript, and Java, tailored to specific business needs.</li>
+    <li>Create solution-specific DLLs and executables within Visual Studio to enhance automation efficiency.</li>
+    <li>Interact with various systems and data sources by calling Windows, websites, and nationwide developed APIs, depending on the requirements of each automation project.</li>
+    <li>Collaborate with cross-functional teams to define and understand business requirements and translate them into effective automation solutions.</li>
+    <li>Continuously optimize and improve existing automation processes to maximize their impact and efficiency.</li>
+    <li>Provide technical support and troubleshooting assistance for automation solutions as needed.</li>
+    <li>Stay up-to-date with the latest automation trends, technologies, and best practices to ensure our automation solutions remain cutting-edge.</li>
+    </UL>
+    
+    <h4><b>Development Summary</b></h4> 
+    <p>I have been a part of the automation world at Nationwide since way back in 2011 when I made used task scheduler to run a morning login routine. My thirst for knowledge lead me to continue down the path of development when I joined Jamie Bramble's Tax team where I learned visual basic script, visual basic for applicationa and Structured Query Language (SQL). Using this knowledge, I led out team out of a dark age we didn't even know we were in. <br><br>Now, as a Robotic Process Automation Specialist, under Stacey Friend, I have my skills have sharpened immensely. I am most familiar with VB.Net, C#, DLL creation, API execution, Database Store Procedures, Autohotkets, Javascript, CSS, HTML and a few I am sure I am forgetting. <br><br> </p>
+    
+    <h4><b>Achievements and Demonstrations</b></h4>
+    <table id="RPATbl">
+
+
+
+    <tr>
+
+    <th><b>Project Name</b></th>
+    <th><b>Project Discription</b></th>
+    <th><b>Technology</b></th>
+    <th><b>Demo Link (if available)</b></th>
+    </tr>
+
+<tr>
+    <th>Annuity Phone Withdrawal Template</th>
+    <th>This was my first automation project that I had inheritted from a summer intern. He was gathering requirements for the phone withdrawal template for future automation. As an intern, with not a lot of Nationwide experience, he had left (through not fault of his own) and requirements document that was insufficient. As someone who started in operations with a technology background, I was able to create a requirements document that diverted Lotsofbots away from IADT and towards pallm for Simple Disbursement processing. I also identified each decision point that the processor makes, where to retrieve the data, and how that would need to be incorporated in code as a validation check. I even gave specific coordinates on the screen that they would need to enter each data point, fields where error messages will display and the sql they will need to run to pull policy information. In the design phase, I took this a step further and processed mock policies in Beta Views/Pallm in the given scenario that needed UAT testing. Lastly, I rebuilt the, at the time, word template to incorporate all the rules and nigo validations using visual basis for applications and worked with the Views DBA to upload and maintain it. This template became the foundation for the current Salesforce template which I was a Saleforce UAT for.</th>
+    <th>VBA, Word, Salesforce, API, Java</th>
+    <th></th>
+    </tr> 
+
+    <tr>
+    <th>Annuity Beneficiary Change</th>
+    <th>Developed a automation solution using Automation anywhere to parse the annuity beneficiary change form (Possible intakes were JSON, Edit Bene Docusign, and regular docusign), store the data in 173 individual variables to perform a variety of NIGO validations on before proceeding to process the request in IADT or route the request to manual. </th>
+    <th>Vb.net, Visual Studio for .dll creation, VBS, Rest API call for Json Web Token (JWT) and Access token, Oracle Store Procedures, SQL, </th>
+    <th></th>
+    </tr>
+    
+    <tr>
+    <th>Annuity Commencement Date</th>
+    <th>Dveloped an unattended solution to monitor the views RPA maitenance queue for a JSON containing information for a specific ACD form. Parsed this data and ran a series of validation checks to determing if the request was in good order before processing it in a Pallm terminal. <br><br> Addtional Teh</th>
+    <th>DLL, VBS, Store Procedures, Rest API calls</th>
+    <th><Insert Link Here/th>
+    </tr>
+
+    <tr>
+    <th>Vantage Status</th>
+    <th>Developed a solution in AA, and then redeveloped it in Power Automate, to initially FTP the NVIP10 report out of the greenmeadow server (this set was later changed to Rest API calls to CMOD when RDCSARR was decommissioned) and then separate the various individual policies into individual text files to then be formmatted and converted to PDF for easy print to image ability. The original process required the individual to manually pick up the printed report from the mail room and, by hand, search each page for key words that are then needed to be imaged in.</th>
+    <th>vb.net, dll, rest api calls, Powershell, FTP</th>
+    <th></th>   </tr>
+
+
+
+    <tr>
+    <th>RS One Time Withdrawal Template</th>
+    <th>Designed and developed the RS OTP template to find and eliminate any chance for human caused NIGOs as well as structuring the data in automation ready fashion. </th>
+    <th>SQL, VBA, Windows Forms, Sharepoint, Access Database</th>
+    <th></th>
+    </tr>
+
+  
+    <tr>
+    <th>Neva 6.6 to 7.4 Upgrade for NBSG</th>
+    <th>Spearheaded the entire ugrade from version 6.6 to 7.4 for NBSG. The upgrade of every other department/team was handled by the Nice Company (who created the NEVA tool); however, the effort for NBSG was decided to be done manually requiring me to rebuild any impcompatible logic or callouts.</th>
+    <th>VBS, Rest calls for Nationwide APIs, Neva, Github</th>
+    <th></th>
+    </tr>
+    
+    <tr>
+    <th>Maintenance Intake Bot</th>
+    <th>Many developers are working out of a single maintenance queue in Views that lead to bots incorrectly picking up the incorrect request or requests not being touched at all because no bot was designed to review it. I built the intake bot for Views which will review every request to determine what bot is programmed to process it, if any, and route it to that bot. If no bot was identified, it would route the request to manual review. If the request was identified, previously sent to the bot, adn remained in the queue the next time the bot ran, then that request would be sent to manual review as well as an e-mail to the developer indicating the bot may need to be updated. </th>
+    <th>AA, SQL, Stored Procedures, VBS, Database administration</th>
+    <th></th>
+    </tr>
+
+    <tr>
+    <th>NB Auto Image</th>
+    <th>This is a neva solution that would reduce the processing time for New Business by automatically taking a screenshot of a neva callout, converting that image to binary, and then using a restcall to upload that file to the Imaging website, retrieving the document number for the new document and, lastly, running a stored procedure to generate a document id, linked to that document number and views request number. </th>
+    <th>Store Procedures, Vb.net, dll, rest api calls, adodb stream conversion, Neva</th>
+    <th></th>
+    </tr>
+
+    <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </tr>
+    </table>
+
+  </div>
+
+  <div id="Bene" class="w3-container city w3-animate-top" style="display:none">
+    <h2>Sr, Beneficiary Claims Anayst</h2>
+    <h4><b>Job Summary</b></h4> 
+    <p>As a Financial Services Representative within the Annuity Beneficiary Claims team, the primary goal is to collaborate with beneficiaries and brokers to determine the most optimal approach for initiating an annuity claim. Beneficiaries can take various forms, including individuals (such as children or spouses), trusts, organizations, or estates, each with distinct claim options and document requirements. A crucial skill for a representative in the beneficiary claims team is the ability to recognize all factors that can influence the available choices for beneficiaries. These factors encompass considerations like whether the contract is Qualified or Non-Qualified, the initiation of required minimum distributions, the beneficiary's relationship to the deceased individual, and whether the deceased person served as the contract owner, annuitant, or both. Additionally, the contract's value and the beneficiary's residency status in the United States play essential roles.<br><br>This role demands that representatives possess expertise that extends beyond their specific field, as they work with beneficiaries who have recently experienced a loss. Given the sensitivity of this process, each representative must adeptly handle potential issues that may fall outside their immediate responsibilities. These issues may pertain to matters such as riders, commissions, New Business Products, Withdrawals, Transfers, and a comprehensive understanding of the distinct rules and regulations governing each state and their impact on the claims process. Providing exceptional customer service as a death benefits representative necessitates engagement with various teams within the annuity department to ensure a seamless and supportive experience for beneficiaries.</p>
+    
+    <h4><b>Achievements and Demonstrations</b></h4>
+    <table id="BeneTbl"> 
+    <tr>
+    <th><b>Project Name</b></th>
+    <th><b>Project Discription</b></th>
+    <th><b>Technology</b></th>
+    <th><b>Demo Link (if available)</b></th>
+    </tr>
+
+    <tr>
+    <th>Data Tracking</th>
+    <th>As a result of the Florida audit, and the new KDDB database, Beneficiary claims was quickly becoming overwhelmed to the point that overtime was never turned down by managers. Knowing this, I decided to keep track of the numbers of notifications received on a daily basis, as well as returning daily requests from follow up to identify if there were any trends. It was very evident that there were certain days of year, days of the month and even days or times of the week where we would be overloaded and unable to recover. Using this data, and several statisical calculations, it was determined that we would need to add more members to the team, as well as switch the team from the two roles at the time (NIGO Rep and Processor) to one role that would do both to reduce hand offs. </th>
+    <th>Excel, Lotus Notes</th>
+    <th></th>
+    </tr>
+    </table>
+    
+    </div>
+
+  <div id="Tax" class="w3-container city w3-animate-right" style="display:none">
+    <h2>Tax Specialist</h2>
+    <h4><b>Job Summary</b></h4> 
+    <p>In my role as a tax specialist, my primary duty involved the maintenance of the TaxApp schema within the PMTS02g database. This schema serves as the repository for all tax form information intended for distribution to our annuity customers. The data stored within this schema undergoes validation and is generated in Pallm on a monthly basis. Subsequently, it is transmitted to the database as a batch file. This batch file represents a consolidated summary of transactional data sourced from Pallm, using criteria such as Policy Number, Individual Identification Number, resident State, withdrawal reason code, and group code. This consolidation process condenses several million transactional records into approximately 200,000 form entries. However, it's important to note that this process is not flawless and is susceptible to errors. <br><br>My responsibilities encompassed taking this condensed cumulative data and reconciling it with both the PMTS database (Transactional/Non-cumulative) and the Explain Database (Transactional/Non-cumulative) using various technological tools. Furthermore, I was responsible for incorporating known system defects into the monthly reports I generated. Additionally, I provided information and guidance to multiple teams within the operations, service center, and resolution departments.<br><br>One of my significant achievements in this role was successfully identifying and resolving a discrepancy in Federal and State withholding amounts, a matter that had garnered the attention of senior management and directors. This discrepancy amounted to an annual imbalance of approximately $500,000.</p>
+    
+    <h4><b>Achievements and Demonstrations</b></h4>
+    <table id="TaxTbl"> 
+    <tr>
+    <th><b>Project Name</b></th>
+    <th><b>Project Discription</b></th>
+    <th><b>Technology</b></th>
+    <th><b>Demo Link (if available)</b></th>
+    </tr>
+
+    <tr>
+    <th>Annuity Death Benefit Process</th>
+    <th>Pallm is known for various defects which creates many manual processes accross operations. One of the biggest, and most annoying, manual process was one that Matthew Septer was in charge of for several years: Death Benefit Research. When a claim is processed, pallm had incorrectly calculated the cost basis, taxable amounts and federal and state withholding for each beneficiary. This required Matt to have to research each beneficiary claim (a policy could have been looked at multiple times depending on how many beneficiaries there were) to add up all deposits and withdrawals since the policies inception to calculate the correct cost basis. If the beneficiary was processed from the payee tab, then the demographic information on the tax form would be the decedent. <br><br> <b>Solution:</b> I determined that we could use the native IBM API to enter the policy information into pallm, retrieve all deposit and withdrawal information to automatically calculate cost basis, and determine if the demographic information was correct. This report was a daily report that was a full time job to do and the code reduced that time to 10 miutes. Later, I realized I could enhance the solution further using vba to loop through the policy, generating a sql statement for each policy as it does so, to automatically calculate basis as well as pull in all the demographic information.(</th>
+    <th>VBA, SQL, Native API</th>
+    <th></th>
+    </tr>
+
+
+    <tr>
+    <th>Death Benefit Tool</th>
+    <th>Many issues are caused by system defects that require manual review, however, human error is equally as bad. In the tax team, your job is to find and fix any issues regardless of the cause. For the longest time, the team was in a "fix the error, not the root cause" stage. Beneficiary claims was a high turnover position at this point which cause many user errors. As someone who came from claims, I was familiar with all of the variables and decision points a representative would have to consider when discussing options with clients and processing claims. As a tax representative, I now saw this process from a new perspective further down the line, so I created a decision matrix for beneficiary claims that would request the policy number from the representative. It would then pull all the necessary policy information to identify options available, as well as crucial information for the beneficiary that could be overlooked.</th>
+    <th>VBA, Excel, Native API, Rest Calls to, at the time, Inquira</th>
+    <th></th>
+    </tr>
+
+    <tr>
+    <th>Federal and State Withholding Reconciliation</th>
+    <th>Back in 2013, the enterprise as a whole used PMTS to remit federal and state withholding to the IRS on a daily basis. The only exception to this was the Annuity department. Annuities remitted Federal and State taxes through Explain. A project was completed in 2015 to switch Annuity remittance to PMTS to align with the rest of the enterprise. The issue is that annuity tax forms, unlike the rest of the company, are not generated in PMTS but are generated from Pallm and sent to TaxApp. Pallm also generates Explain data so there was never any discrepency between remittence and reporting. After we started using PMTS, we had an annual out of balance in the hundreds of thousands that couldn't be identified. We only knew of this error after the year end when FinOps balanced the books. <br><br><b>Solution:</b> I developed a tool that would pull the monthly generated tax form from the TaxApp database, the daily transaction data from the Explain database, and the daily transactional data from the PMTS database to automatically compare values on the following fields: Policy Number, WRC, FIT, SIT, and State. <br><br> This resulted in a monthly report that correctly identified, on average, the 200 to 300 policies out of balance that needed to be manually corrected before year end. </th>
+    <th>VBA, SQL, Native API</th>
+    <th></th>
+    </tr>
+    </table>
+    
+   
+  </div>
+
+  <div id="Next" class="w3-container city w3-animate-bottom" style="display:none">
+    <div id="board"></div>
+    <h2>Consultant, Business Capability Analyst if I am lucky! :D</h2>	
+
+	
+  </div>
+
+
+</div>
+
+
+
+<script>
+function openLink(evt, animName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(animName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+
+
+		<div id="board"></div>
+		<font style="font-family:impact;color:red;"><font><font style="font-family:impact;color:red;"><font>
+	
+	<script>
+
+		var brd = document.createElement("DIV");
+		var tst=document.getElementById('Next')
+		tst.insertBefore(brd, document.getElementById("board"));
+
+		seeds = [];
+		particles = [];
+
+
+
+
+
+
+		function newFireworkParticle(x, y, angle)
+		{
+			var fwkPtc = document.createElement("DIV");
+			fwkPtc.setAttribute('class', 'fireWorkParticle');
+			fwkPtc.time = 2500;
+			while(angle > 360)
+				angle -= 360;
+			while(angle < 0)
+				angle += 360;
+			fwkPtc.velocity = [];
+			if(angle > 270)
+			{
+				fwkPtc.velocity.x = .5 * Math.sin(angle * Math.PI / 180) * (1 - Math.random() *  0.3);
+				fwkPtc.velocity.y = .5 * Math.cos(angle * Math.PI / 180) * (1 - Math.random() *  0.3);
+			}
+			else if(angle > 180)
+			{
+				fwkPtc.velocity.x = .5 * Math.sin(angle * Math.PI / 180) * (1 - Math.random() *  0.3);
+				fwkPtc.velocity.y = .5 * Math.cos(angle * Math.PI / 180) * (1 - Math.random() *  0.3);
+			}
+			else if(angle > 90)
+			{
+				fwkPtc.velocity.x = .5 * Math.sin(angle * Math.PI / 180) * (1 - Math.random() *  0.3);
+				fwkPtc.velocity.y = .5 * Math.cos(angle * Math.PI / 180) * (1 - Math.random() *  0.3);
+			}
+			else
+			{
+				fwkPtc.velocity.x = .5 * Math.sin(angle * Math.PI / 180) * (1 - Math.random() *  0.3);
+				fwkPtc.velocity.y = .5 * Math.cos(angle * Math.PI / 180) * (1 - Math.random() *  0.3);
+			}
+			fwkPtc.position = [];
+			fwkPtc.position.x = x;
+			fwkPtc.position.y = y;
+			fwkPtc.style.left = fwkPtc.position.x + 'px';
+			fwkPtc.style.top = fwkPtc.position.y + 'px';
+			if(particles == null)
+				particles = [];
+			particles.push(fwkPtc);
+			return fwkPtc;
+		}
+
+		
+
+		function newFireWorkOnClick(x,y)
+		{	
+		var x= Math.ceil(Math.random() * 1000);       
+		var y= Math.ceil(Math.random() * 1000);       
+			newFireworkSeed(x, y);
+		}
+
+		function newFireworkSeed(x, y)
+		{
+			var fwkSed = document.createElement("DIV");
+			fwkSed.setAttribute('class', 'fireWorkSeed');
+			brd.appendChild(fwkSed);
+			fwkSed.time = 1000;
+			fwkSed.velocity = [];
+			fwkSed.velocity.x = 0;
+			fwkSed.velocity.y = .5;
+			fwkSed.position = [];
+			fwkSed.position.x = x;
+			fwkSed.position.y = y;
+			fwkSed.style.left = fwkSed.position.x + 'px';
+			fwkSed.style.top = fwkSed.position.y + 'px';
+			if(seeds == null)
+				seeds = [];
+			seeds.push(fwkSed);
+			return fwkSed;
+		}
+		
+		function newFireWorkStar(x, y)
+		{
+			var fwkBch = document.createElement("DIV");
+			fwkBch.setAttribute('class', 'fireWorkBatch');
+			var a = 0;
+			while(a < 360)
+			{
+				var fwkPtc = newFireworkParticle(x, y, a);
+				fwkBch.appendChild(fwkPtc);
+				a += 5;
+			}
+			brd.appendChild(fwkBch);
+		}
+
+		var before = Date.now();
+		var id = setInterval(frame, 5);
+		
+		function frame()
+		{
+			var current = Date.now();
+			var deltaTime = current - before;
+			before = current;
+			for(i in seeds)
+			{
+				var fwkSed = seeds[i];
+				fwkSed.time -= deltaTime;
+				if(fwkSed.time > 0)
+				{
+					fwkSed.velocity.x -= fwkSed.velocity.x * 0.0005 * deltaTime;
+					fwkSed.velocity.y -= 0.0005 * deltaTime + fwkSed.velocity.y * 0.0005 * deltaTime;
+					fwkSed.position.x += fwkSed.velocity.x * deltaTime;
+					fwkSed.position.y -= fwkSed.velocity.y * deltaTime;
+					fwkSed.style.left = fwkSed.position.x + 'px';
+					fwkSed.style.top = fwkSed.position.y + 'px';
+				}
+				else
+				{
+					newFireWorkStar(fwkSed.position.x, fwkSed.position.y);
+					fwkSed.parentNode.removeChild(fwkSed);
+					seeds.splice(i, 1);
+				}
+			}
+			for(i in particles)
+			{
+				var fwkPtc = particles[i];
+				fwkPtc.time -= deltaTime;
+				if(fwkPtc.time > 0)
+				{
+					fwkPtc.velocity.x -= fwkPtc.velocity.x * 0.0005 * deltaTime;
+					fwkPtc.velocity.y -= 0.0005 * deltaTime + fwkPtc.velocity.y * 0.0005 * deltaTime;
+					fwkPtc.position.x += fwkPtc.velocity.x * deltaTime;
+					fwkPtc.position.y -= fwkPtc.velocity.y * deltaTime;
+					fwkPtc.style.left = fwkPtc.position.x + 'px';
+					fwkPtc.style.top = fwkPtc.position.y + 'px';
+				}
+				else
+				{
+					fwkPtc.parentNode.removeChild(fwkPtc);
+					particles.splice(i, 1);
+				}
+			}
+		}
+		
+		var id = setInterval(frame, 5);
+		var test = setInterval(newFireWorkOnClick,1000)
+		
+	</script>
+
+
+
+
+
+</font></font></font></font>
+
 </body>
 </html>
